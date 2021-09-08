@@ -2,7 +2,7 @@ var PNG = require('png-js');
 
 let data = [];
 
-PNG.decode('test.png', (pixels) => {
+PNG.decode('test2.png', (pixels) => {
     
     //iterate through img pixels and populate array(data) with complete list of colors (in rgba)
 
