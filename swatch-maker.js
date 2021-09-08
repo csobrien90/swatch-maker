@@ -2,7 +2,7 @@ var PNG = require('png-js');
 
 let data = [];
 
-PNG.decode('smalltest.png', (pixels) => {
+PNG.decode('test.png', (pixels) => {
     
     //iterate through img pixels and populate array(data) with complete list of colors (in rgba)
 
@@ -35,7 +35,7 @@ PNG.decode('smalltest.png', (pixels) => {
             if (arr.toString() === color.toString()) {count++};
         })
         countObj[color.toString()] = count;
-        console.log('one color counted');
+        console.log('running...');
     })
 
     let countArr = [];
