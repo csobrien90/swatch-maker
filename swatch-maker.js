@@ -2,7 +2,7 @@ var PNG = require('png-js');
 
 let data = [];
 
-PNG.decode('test2.png', (pixels) => {
+PNG.decode('smalltest.png', (pixels) => {
     
     //iterate through img pixels and populate array(data) with complete list of colors (in rgba)
 
@@ -18,16 +18,45 @@ PNG.decode('test2.png', (pixels) => {
     //remove duplicate colors to produce more manageable array(dataSet)
 
     let stringData = data.map(JSON.stringify);
+    
     let stringSet = new Set(stringData);
-    let summedArr = Array.from(stringSet, JSON.parse);
+    
+    let allColors = Array.from(stringSet).map(JSON.parse);
 
-    //output total array of colors
-    
-    summedArr.forEach(subArr => console.log(subArr));
-    
-    //filter to top colors only
+    //filter to top five colors only
+
+    let count;
+    let countObj = {};
+
+    console.log('starting count');
+    allColors.forEach(color => {
+        count = 0;
+        data.forEach(arr => {
+            if (arr.toString() === color.toString()) {count++};
+        })
+        countObj[color.toString()] = count;
+        console.log('one color counted');
+    })
+
+    let countArr = [];
+
+    for (element in countObj) {
+        countArr.push(countObj[element]);
+    }
+
+    countArr.sort((a, b) => a - b);
+    let fifthTopColor = countArr[countArr.length - 5];
+    let topColors = [];
+
+    for (element in countObj) {
+        if (countObj[element] >= fifthTopColor) {
+            topColors.push(element);
+        }
+    };
+
     //display top colors color pallette?
 
-//something is up with the scope - need to keep everything inside this callback to use data array
+    console.log(topColors);
+
 })
 
