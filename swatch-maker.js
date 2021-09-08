@@ -2,7 +2,7 @@ var PNG = require('png-js');
 
 let data = [];
 
-PNG.decode('smalltest.png', (pixels) => {
+PNG.decode('test.png', (pixels) => {
     
     //iterate through img pixels and populate array(data) with complete list of colors (in rgba)
 
@@ -16,20 +16,15 @@ PNG.decode('smalltest.png', (pixels) => {
     }
 
     //remove duplicate colors to produce more manageable array(dataSet)
-    //this method is trash for some reason...
-    dataSet = [[0, 0, 0, 0]];
-    data.forEach(arr => {
-        for (let i = 0; i < dataSet.length; i++) {
-            for (let j = 0; j < 4; j++) {
-                if (arr[j] != dataSet[i][j]) {
-                    dataSet.push(arr);
-                    console.log(arr);
-                }
-            }
-        }
-    })
 
-    //output array of colors
+    let stringData = data.map(JSON.stringify);
+    let stringSet = new Set(stringData);
+    let summedArr = Array.from(stringSet, JSON.parse);
+
+    //output total array of colors
+    
+    summedArr.forEach(subArr => console.log(subArr));
+    
     //filter to top colors only
     //display top colors color pallette?
 
