@@ -1,5 +1,5 @@
-const img = new Image(150, 100);
-img.src = "smalltest.png";
+const img = new Image();
+img.src = "test.png";
 img.onload = () => {ctx.drawImage(img, 0, 0)}
 
 const canvas = document.getElementById('canvas');
@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d');
 
 function getSwatch() {
 
-    var imgData = ctx.getImageData(0, 0, 150, 100);
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
     let data = [];
 
@@ -35,14 +35,12 @@ function getSwatch() {
     let count;
     let countObj = {};
 
-    console.log('starting count');
     allColors.forEach(color => {
         count = 0;
         data.forEach(arr => {
             if (arr.toString() === color.toString()) {count++};
         })
         countObj[color.toString()] = count;
-        console.log('running...');
     })
 
     let countArr = [];
