@@ -13,12 +13,12 @@ function getSwatch() {
 
     //iterate through img pixels and populate array(data) with complete list of colors (in rgba)
 
-    for (let i = 0; i <= imgData.length / 4; i++) {
+    for (let i = 0; i <= imgData.data.length / 4; i++) {
         data[i] = [
-            imgData[4 * i],
-            imgData[4 * i + 1],
-            imgData[4 * i + 2],
-            imgData[4 * i + 3],
+            imgData.data[4 * i],
+            imgData.data[4 * i + 1],
+            imgData.data[4 * i + 2],
+            imgData.data[4 * i + 3],
         ]
     }
 
