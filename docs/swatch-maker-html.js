@@ -1,3 +1,10 @@
+const color1 = document.getElementsByClassName('one')[0];
+const color2 = document.getElementsByClassName('two')[0];
+const color3 = document.getElementsByClassName('three')[0];
+const color4 = document.getElementsByClassName('four')[0];
+const color5 = document.getElementsByClassName('five')[0];
+
+
 const img = new Image();
 img.src = "test.png";
 img.onload = () => {ctx.drawImage(img, 0, 0)}
@@ -59,8 +66,21 @@ function getSwatch() {
         }
     };
 
-    //display top colors color pallette?
+    //format topColors for input into css
 
-    console.log(topColors);
+    const rgbaColorsArr = []
+    
+    topColors.forEach(arr => {
+        rgbaColorsArr.push(`rgba(${arr})`);
+    })
+
+
+
+    //display top colors color pallette
+    color1.style.backgroundColor = rgbaColorsArr[0]
+    color2.style.backgroundColor = rgbaColorsArr[1]
+    color3.style.backgroundColor = rgbaColorsArr[2]
+    color4.style.backgroundColor = rgbaColorsArr[3]
+    color5.style.backgroundColor = rgbaColorsArr[4]
 
 }

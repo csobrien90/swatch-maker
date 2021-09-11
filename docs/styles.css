@@ -1,0 +1,25 @@
+.color {
+    display: block;
+    width: 100px;
+    height: 50px;
+}
+
+.one {
+    background-color: black;
+}
+
+.two {
+    background-color: blue;
+}
+
+.three {
+    background-color: green;
+}
+
+.four {
+    background-color: hotpink;
+}
+
+.five {
+    background-color: purple;
+}
