@@ -4,7 +4,6 @@ const color3 = document.getElementsByClassName('three')[0];
 const color4 = document.getElementsByClassName('four')[0];
 const color5 = document.getElementsByClassName('five')[0];
 
-
 const img = new Image();
 img.src = "test.png";
 img.onload = () => {ctx.drawImage(img, 0, 0)}
@@ -42,12 +41,15 @@ function getSwatch() {
     let count;
     let countObj = {};
 
+    console.log('starting color filtering');
     allColors.forEach(color => {
         count = 0;
         data.forEach(arr => {
             if (arr.toString() === color.toString()) {count++};
+            data.shift();
         })
         countObj[color.toString()] = count;
+        console.log('running...')
     })
 
     let countArr = [];
@@ -76,7 +78,7 @@ function getSwatch() {
 
 
 
-    //display top colors color pallette
+    //display top colors as color pallette
     color1.style.backgroundColor = rgbaColorsArr[0]
     color2.style.backgroundColor = rgbaColorsArr[1]
     color3.style.backgroundColor = rgbaColorsArr[2]
