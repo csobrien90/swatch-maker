@@ -70,19 +70,21 @@ function getSwatch() {
 
     //format topColors for input into css
 
-    const rgbaColorsArr = []
+    setTimeout(() => {
+
+        const rgbaColorsArr = []
     
-    topColors.forEach(arr => {
-        rgbaColorsArr.push(`rgba(${arr})`);
-    })
-
-
-
-    //display top colors as color pallette
-    color1.style.backgroundColor = rgbaColorsArr[0]
-    color2.style.backgroundColor = rgbaColorsArr[1]
-    color3.style.backgroundColor = rgbaColorsArr[2]
-    color4.style.backgroundColor = rgbaColorsArr[3]
-    color5.style.backgroundColor = rgbaColorsArr[4]
+        topColors.forEach(arr => {
+            rgbaColorsArr.push(`rgba(${arr})`);
+        })
+    
+        //display top colors as color pallette
+        color1.style.backgroundColor = rgbaColorsArr[0]
+        color2.style.backgroundColor = rgbaColorsArr[1]
+        color3.style.backgroundColor = rgbaColorsArr[2]
+        color4.style.backgroundColor = rgbaColorsArr[3]
+        color5.style.backgroundColor = rgbaColorsArr[4]
+    
+    }, 10000);
 
 }
