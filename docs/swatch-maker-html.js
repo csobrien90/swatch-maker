@@ -61,17 +61,24 @@ function getSwatch() {
 
     let countArr = [];
 
+    console.log(countObj); //debug
+
     for (element in countObj) {
         countArr.push(countObj[element]);
     }
 
     countArr.sort((a, b) => a - b);
+
     let fifthTopColor = countArr[countArr.length - 5];
+
+    console.log(`fifthTopColor is ${fifthTopColor}`); //debug
+
     let topColors = [];
 
     for (element in countObj) {
-        if (countObj[element] >= fifthTopColor) {
+        if (countObj[element] > fifthTopColor) {
             topColors.push(element);
+            console.log('push'); //debug
         }
     };
 
@@ -90,7 +97,6 @@ function getSwatch() {
     color4.style.backgroundColor = rgbaColorsArr[3]
     color5.style.backgroundColor = rgbaColorsArr[4]
 
-    console.log(`swatch loads with topColors: ${topColors}`);
-    setTimeout(() => {console.log(`after 10 seconds topColors is: ${topColors}`)}, 10000);
+    console.log(topColors);
 
 }
