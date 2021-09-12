@@ -6,13 +6,12 @@ const color5 = document.getElementsByClassName('five')[0];
 
 const fileSourceInput = document.getElementById('file-source');
 
-const img = new Image();
-img.crossOrigin = 'Anonymous';
-
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-
 fileSourceInput.addEventListener('keyup', () => {
+    const img = new Image();
+    img.crossOrigin = 'Anonymous';
+
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     img.src = fileSourceInput.value;
     ctx.drawImage(img, 0, 0);
@@ -53,7 +52,6 @@ function getSwatch() {
         count = 0;
         data.forEach(arr => {
             if (arr.toString() === color.toString()) {count++};
-            data.shift();
         })
         countObj[color.toString()] = count;
         console.log('running...')
@@ -71,12 +69,12 @@ function getSwatch() {
 
     let fifthTopColor = countArr[countArr.length - 5];
 
-    console.log(`fifthTopColor is ${fifthTopColor}`); //debug
+    console.log(`fifthTopColor accounts for ${fifthTopColor} pixels`); //debug
 
     let topColors = [];
 
     for (element in countObj) {
-        if (countObj[element] > fifthTopColor) {
+        if (countObj[element] >= fifthTopColor) {
             topColors.push(element);
             console.log('push'); //debug
         }
