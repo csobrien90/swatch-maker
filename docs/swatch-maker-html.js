@@ -7,6 +7,7 @@ const color5 = document.getElementsByClassName('five')[0];
 const fileSourceInput = document.getElementById('file-source');
 
 const img = new Image();
+img.crossOrigin = 'Anonymous';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
