@@ -1,4 +1,4 @@
 #Swatch Maker
 ---
 
-This Node app analyzes a .png image and outputs the top five most prevalent colors in rgba format.
+This web app analyzes an image and outputs the top five most prevalent colors as a swatch.
