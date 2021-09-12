@@ -12,6 +12,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 fileSourceInput.addEventListener('keyup', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     img.src = fileSourceInput.value;
     ctx.drawImage(img, 0, 0);
 })
