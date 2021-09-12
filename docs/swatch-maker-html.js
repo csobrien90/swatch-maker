@@ -89,5 +89,7 @@ function getSwatch() {
     color4.style.backgroundColor = rgbaColorsArr[3]
     color5.style.backgroundColor = rgbaColorsArr[4]
 
+    console.log(`swatch loads with topColors: ${topColors}`);
+    setTimeout(() => {console.log(`after 10 seconds topColors is: ${topColors}`)}, 10000);
 
 }
